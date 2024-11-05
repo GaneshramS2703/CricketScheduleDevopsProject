@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Match</title>
+    
+    <!-- Load static files -->
+   
+    
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    <h1>Edit Cricket Match</h1>
+
+    <!-- Form Section -->
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            
+            <label for="team1">Team 1</label>
+            <input type="text" id="team1" name="team1" value="{{ match.team1 }}" required>
+            
+            <label for="team2">Team 2</label>
+            <input type="text" id="team2" name="team2" value="{{ match.team2 }}" required>
+
+            <label for="match_time">Match Date and Time:</label>
+            <input type="datetime-local" name="match_time" id="match_time" value="{{ form.match_time.value|date:'Y-m-d\\TH:i' }}" required>
+
+            <label for="venue">Venue</label>
+            <input type="text" id="venue" name="venue" value="{{ match.venue }}" required>
+
+            <label for="watch">Watch</label>
+            <input type="text" id="watch" name="watch" value="{{ match.watch }}" required>
+            
+            <button type="submit">Save Changes</button>
+        </form>
+
+        <a href="{% url 'match_list' %}" class="back-link">Back to Match List</a>
+    </div>
+
+</body>
+</html>
+

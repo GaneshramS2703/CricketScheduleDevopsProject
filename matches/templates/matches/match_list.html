@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Match Schedule</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Cricket Match Schedule</h1>
+    <ul>
+        {% for match in matches %}
+        <li>
+            {{ match.team1 }} vs {{ match.team2 }} on {{ match.match_time|date:"D, d M Y H:i" }} at {{ match.venue }}, 
+            live on {{ match.watch }}
+            <a href="{% url 'edit_match' match.id %}">Edit</a> | 
+            <form action="{% url 'delete_match' match.id %}" method="POST" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% empty %}
+        <p>No matches available.</p>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_match' %}">Add New Match</a>
+</body>
+</html>
+
+<!-- In your base template or main page template -->
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a></p>
+{% else %}
+    <a href="{% url 'login' %}">Login</a> | <a href="{% url 'sign_up' %}">Sign Up</a>
+{% endif %}

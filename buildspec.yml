@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing dependencies...
+      - python3 -m venv venv
+      - source venv/bin/activate
+      - pip install -r requirements.txt
+
+  pre_build:
+    commands:
+      - echo Running Django tests...
+      - python manage.py test
+
+  build:
+    commands:
+      - echo Building the application...
+      - python manage.py collectstatic --noinput
+      - zip -r application.zip *  # Prepare the build artifact
+
+artifacts:
+  files:
+    - application.zip
+  discard-paths: yes
+  base-directory: ./  # Specify the root directory for build files
