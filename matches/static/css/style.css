@@ -1,16 +1,37 @@
+/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
+/* Centering Styles - Only for Login and Signup Pages */
+.login-page, .signup-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Centered Container */
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* Heading Styles */
 h1 {
     text-align: center;
     color: #2c3e50;
     margin-top: 50px;
 }
 
+/* Link Styles */
 a {
     display: inline-block;
     padding: 10px 20px;
@@ -25,6 +46,7 @@ a:hover {
     background-color: #2980b9;
 }
 
+/* List Styles */
 ul {
     list-style: none;
     padding: 0;
@@ -39,6 +61,7 @@ li {
     width: 60%;
 }
 
+/* Button Styles */
 button {
     background-color: #e74c3c;
     color: white;
@@ -52,32 +75,12 @@ button:hover {
     background-color: #c0392b;
 }
 
-/* style.css */
-
-/* Center the signup form on the page */
-.signup-container {
-    width: 320px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Heading style */
-.signup-container h2 {
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Form group styling */
+/* Shared Form Group Styles */
 .form-group {
     margin-bottom: 15px;
 }
 
-/* Input field styling */
+/* Input Styles */
 form input[type="text"],
 form input[type="email"],
 form input[type="password"] {
@@ -88,7 +91,35 @@ form input[type="password"] {
     font-size: 14px;
 }
 
-/* Submit button styling */
+/* Message Styles */
+.message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Signup Page Specific Styles */
+.signup-container {
+    width: 320px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: auto;
+}
+
+.signup-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
 .signup-button {
     width: 100%;
     padding: 10px;
@@ -104,22 +135,8 @@ form input[type="password"] {
     background-color: #218838;
 }
 
-/* Message styling */
-.message {
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-}
-
-.message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
-/* Link styling */
 .signup-container a {
-    color: #007bff;
+    color: #ff0000;
     text-decoration: none;
 }
 
@@ -127,12 +144,9 @@ form input[type="password"] {
     text-decoration: underline;
 }
 
-/* style.css */
-
-/* Center the login form on the page */
+/* Login Page Specific Styles */
 .login-container {
     width: 300px;
-    margin: 50px auto;
     padding: 20px;
     background-color: #f8f9fa;
     border-radius: 8px;
@@ -140,28 +154,11 @@ form input[type="password"] {
     text-align: center;
 }
 
-/* Heading style */
 .login-container h2 {
-    font-family: Arial, sans-serif;
     color: #333;
     margin-bottom: 20px;
 }
 
-/* Form group styling */
-.form-group {
-    margin-bottom: 15px;
-}
-
-/* Input field styling */
-form input[type="text"], form input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-/* Submit button styling */
 .login-button {
     width: 100%;
     padding: 10px;
@@ -177,13 +174,11 @@ form input[type="text"], form input[type="password"] {
     background-color: #0056b3;
 }
 
-/* Link styling */
 .login-container a {
-    color: #007bff;
+    color: #ff0000;
     text-decoration: none;
 }
 
 .login-container a:hover {
     text-decoration: underline;
 }
-

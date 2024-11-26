@@ -2,25 +2,21 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.9
     commands:
       - echo Installing dependencies...
-      - python3 -m venv venv
-      - source venv/bin/activate
       - pip install -r requirements.txt
-
   pre_build:
     commands:
-      - echo Running Django tests...
-      - python manage.py test
-
+      - echo Pre-build: Preparing Django environment...
+      - python manage.py collectstatic --noinput
+      - python manage.py migrate
   build:
     commands:
-      - echo Building the application...
-      - python manage.py collectstatic --noinput
-      - zip -r application.zip *  # Prepare the build artifact
-
+      - echo Build: Testing the application...
+      - python manage.py test
 artifacts:
   files:
-    - application.zip
-  discard-paths: yes
-  base-directory: ./  # Specify the root directory for build files
+    - '**/*'
+  discard-paths: no
