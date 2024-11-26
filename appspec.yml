@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /Cricketschedule_project/cricketschedule_project
+    destination: /cricketschedule_project
 hooks:
   AfterInstall:
     - location: deploy/restart_server.sh
