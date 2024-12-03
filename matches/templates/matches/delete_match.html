@@ -1,6 +1,13 @@
-<h1>Are you sure you want to delete "{{ match }}"?</h1>
-<form method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Delete">
-</form>
-<a href="{% url 'match_list' %}">Cancel</a>
+{% extends "matches/base.html" %}
+
+{% block title %}Delete Match{% endblock %}
+
+{% block content %}
+    <h2>Delete Match</h2>
+    <p>Are you sure you want to delete "{{ match }}"?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'match_list' %}">Cancel</a>
+{% endblock %}

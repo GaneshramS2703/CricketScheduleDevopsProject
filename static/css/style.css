@@ -1,16 +1,22 @@
-/* Global Styles */ 
-body { 
+/* Global Styles */
+body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+}
+
+/* Centering Styles - Only for Login and Signup Pages */
+.login-page, .signup-page {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    width: 100%;
 }
 
-/* Centering container */
+/* Centered Container */
 .centered-container {
     display: flex;
     flex-direction: column;
@@ -69,7 +75,36 @@ button:hover {
     background-color: #c0392b;
 }
 
-/* Signup Form Styles */
+/* Shared Form Group Styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Input Styles */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Message Styles */
+.message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Signup Page Specific Styles */
 .signup-container {
     width: 320px;
     padding: 20px;
@@ -81,23 +116,8 @@ button:hover {
 }
 
 .signup-container h2 {
-    font-family: Arial, sans-serif;
     color: #333;
     margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-form input[type="text"],
-form input[type="email"],
-form input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
 }
 
 .signup-button {
@@ -115,20 +135,8 @@ form input[type="password"] {
     background-color: #218838;
 }
 
-.message {
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-}
-
-.message.error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-
 .signup-container a {
-    color: #007bff;
+    color: #ff0000;
     text-decoration: none;
 }
 
@@ -136,7 +144,7 @@ form input[type="password"] {
     text-decoration: underline;
 }
 
-/* Login Form Styles */
+/* Login Page Specific Styles */
 .login-container {
     width: 300px;
     padding: 20px;
@@ -144,26 +152,11 @@ form input[type="password"] {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    margin: auto;
 }
 
 .login-container h2 {
-    font-family: Arial, sans-serif;
     color: #333;
     margin-bottom: 20px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-form input[type="text"], 
-form input[type="password"] {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
 }
 
 .login-button {
@@ -182,10 +175,37 @@ form input[type="password"] {
 }
 
 .login-container a {
-    color: #007bff;
+    color: #ff0000;
     text-decoration: none;
 }
 
 .login-container a:hover {
     text-decoration: underline;
+}
+
+
+
+main {
+    margin-top: 30px; /* Adjust for header height */
+    padding: 20px;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.header-left p {
+    margin: 5px 0;
+}
+
+.header-left h1 {
+    font-size: 1.5rem; /* Adjust font size */
+    margin: 0;
+}
+
+.header-left p {
+    margin: 0;
+    font-size: 0.9rem; /* Reduce font size */
 }
