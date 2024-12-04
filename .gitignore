@@ -3,3 +3,29 @@
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Virtual environment
+venv/
+
+# Django database
+db.sqlite3
+
+# SonarQube files
+.scannerwork/
+
+# Static files
+staticfiles/
+
+# Python-related files
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+
+# Pip installer script
+get-pip.py
+
+# OS-specific files
+.DS_Store
+Thumbs.db

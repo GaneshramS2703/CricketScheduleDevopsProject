@@ -7,12 +7,6 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
-# 1. Read - Display all matches
-@login_required
-def match_list(request):
-    matches = Match.objects.all()  # Retrieve all matches
-    return render(request, 'matches/match_list.html', {'matches': matches})
-
 # 2. Create - Add a new match
 @login_required
 def add_match(request):
