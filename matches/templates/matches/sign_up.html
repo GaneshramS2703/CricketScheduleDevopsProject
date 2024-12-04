@@ -1,56 +1,26 @@
-{% load static %}  <!-- Load static files tag -->
+{% extends "matches/base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">  <!-- Link to your CSS file -->
-</head>
-<body>
-<!-- matches/templates/matches/sign_up.html -->
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
-<div class="centered-container signup-page">
-    <div class="signup-container">
-    <h2>Create an Account</h2>
-    
-    <!-- Display any messages (like errors) -->
-    {% if messages %}
-        {% for message in messages %}
-            <p class="message {{ message.tags }}">{{ message }}</p>
-        {% endfor %}
-    {% endif %}
-
-    <!-- Sign-Up Form -->
-    <form method="post">
+    <h2 style="text-align: center; font-family: Arial, sans-serif;">Sign Up</h2>
+    <form method="POST" style="max-width: 400px; margin: auto;">
         {% csrf_token %}
-        
-        <div class="form-group">
-            {{ form.username.label_tag }}<br>
-            {{ form.username }}
+        <div style="margin-bottom: 15px;">
+            <label for="username" style="display: block; font-weight: bold; margin-bottom: 5px;">Username:</label>
+            <input type="text" name="username" id="username" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
         </div>
-
-        <div class="form-group">
-            {{ form.email.label_tag }}<br>
-            {{ form.email }}
+        <div style="margin-bottom: 15px;">
+            <label for="email" style="display: block; font-weight: bold; margin-bottom: 5px;">Email:</label>
+            <input type="email" name="email" id="email" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
         </div>
-
-        <div class="form-group">
-            {{ form.password1.label_tag }}<br>
-            {{ form.password1 }}
+        <div style="margin-bottom: 15px;">
+            <label for="password" style="display: block; font-weight: bold; margin-bottom: 5px;">Password:</label>
+            <input type="password" name="password" id="password" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
         </div>
-
-        <div class="form-group">
-            {{ form.password2.label_tag }}<br>
-            {{ form.password2 }}
-        </div>
-
-        <button type="submit" class="signup-button">Sign Up</button>
+        <button type="submit" style="display: block; background-color: #3498db; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Sign Up</button>
     </form>
-
-    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
-    
-</div>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'login' %}" style="color: #3498db; text-decoration: none;">Already have an account? Login</a>
+    </div>
 {% endblock %}

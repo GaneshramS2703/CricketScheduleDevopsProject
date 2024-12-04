@@ -3,25 +3,25 @@
 {% block title %}Edit Match{% endblock %}
 
 {% block content %}
-    <h2>Edit Match</h2>
-    <form method="POST">
+    <h2 style="text-align: center; font-family: Arial, sans-serif;">Edit Match</h2>
+    <form method="POST" style="max-width: 500px; margin: auto;">
         {% csrf_token %}
-        <label for="team1">Team 1:</label>
-        <input type="text" name="team1" value="{{ match.team1 }}" required>
+        <label for="team1" style="display: block; margin-bottom: 5px; font-weight: bold;">Team 1:</label>
+        <input type="text" name="team1" value="{{ match.team1 }}" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
 
-        <label for="team2">Team 2:</label>
-        <input type="text" name="team2" value="{{ match.team2 }}" required>
+        <label for="team2" style="display: block; margin-bottom: 5px; font-weight: bold;">Team 2:</label>
+        <input type="text" name="team2" value="{{ match.team2 }}" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
 
-        <label for="match_time">Match Date and Time:</label>
-        <input type="datetime-local" name="match_time" value="{{ form.match_time.value|date:'Y-m-d\\TH:i' }}" required>
+        <label for="match_time" style="display: block; margin-bottom: 5px; font-weight: bold;">Match Date and Time:</label>
+        <input type="datetime-local" name="match_time" value="{{ form.match_time.value|date:'Y-m-d\\TH:i' }}" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
 
-        <label for="venue">Venue:</label>
-        <input type="text" name="venue" value="{{ match.venue }}" required>
+        <label for="venue" style="display: block; margin-bottom: 5px; font-weight: bold;">Venue:</label>
+        <input type="text" name="venue" value="{{ match.venue }}" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
 
-        <label for="watch">Watch on:</label>
-        <input type="text" name="watch" value="{{ match.watch }}" required>
+        <label for="watch" style="display: block; margin-bottom: 5px; font-weight: bold;">Watch on:</label>
+        <input type="text" name="watch" value="{{ match.watch }}" required style="width: 100%; padding: 10px; margin-bottom: 15px;">
 
-        <button type="submit">Save Changes</button>
+        <button type="submit" style="display: block; background-color: #3498db; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Save Changes</button>
     </form>
-    <a href="{% url 'match_list' %}">Back to Match List</a>
+    <a href="{% url 'match_list' %}" style="display: block; text-align: center; margin-top: 15px; text-decoration: none; color: #3498db;">Back to Match List</a>
 {% endblock %}

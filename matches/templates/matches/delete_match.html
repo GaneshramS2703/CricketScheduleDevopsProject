@@ -3,11 +3,11 @@
 {% block title %}Delete Match{% endblock %}
 
 {% block content %}
-    <h2>Delete Match</h2>
-    <p>Are you sure you want to delete "{{ match }}"?</p>
-    <form method="POST">
+    <h2 style="text-align: center; font-family: Arial, sans-serif;">Delete Match</h2>
+    <p style="text-align: center; font-family: Arial, sans-serif;">Are you sure you want to delete "{{ match }}"?</p>
+    <form method="POST" style="text-align: center;">
         {% csrf_token %}
-        <button type="submit">Delete</button>
+        <button type="submit" style="background-color: #e74c3c; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Delete</button>
     </form>
-    <a href="{% url 'match_list' %}">Cancel</a>
+    <a href="{% url 'match_list' %}" style="display: block; text-align: center; margin-top: 15px; text-decoration: none; color: #3498db;">Cancel</a>
 {% endblock %}

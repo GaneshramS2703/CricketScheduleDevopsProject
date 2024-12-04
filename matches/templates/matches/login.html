@@ -1,39 +1,22 @@
-{% load static %}
+{% extends "matches/base.html" %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="centered-container login-page">
-        <div class="login-container">
-        <h2>Sign In to Your Account </h2>
+{% block title %}Login{% endblock %}
 
-        {% if messages %}
-            {% for message in messages %}
-                <p class="message {{ message.tags }}">{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-
-        <form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-            <div class="form-group">
-                {{ form.username.label_tag }}<br>
-                {{ form.username }}
-            </div>
-            <div class="form-group">
-                {{ form.password.label_tag }}<br>
-                {{ form.password }}
-            </div>
-            <button type="submit" class="login-button">Sign In</button>
-        </form>
-
-        <p>Don’t have an account? <a href="{% url 'sign_up' %}">Sign up here</a></p>
+{% block content %}
+    <h2 style="text-align: center; font-family: Arial, sans-serif;">Login</h2>
+    <form method="POST" style="max-width: 400px; margin: auto;">
+        {% csrf_token %}
+        <div style="margin-bottom: 15px;">
+            <label for="username" style="display: block; font-weight: bold; margin-bottom: 5px;">Username:</label>
+            <input type="text" name="username" id="username" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+        </div>
+        <div style="margin-bottom: 15px;">
+            <label for="password" style="display: block; font-weight: bold; margin-bottom: 5px;">Password:</label>
+            <input type="password" name="password" id="password" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+        </div>
+        <button type="submit" style="display: block; background-color: #3498db; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Login</button>
+    </form>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'sign_up' %}" style="color: #3498db; text-decoration: none;">Don't have an account? Sign Up</a>
     </div>
-
-</body>
-</html>
+{% endblock %}

@@ -3,21 +3,25 @@
 {% block title %}Match List{% endblock %}
 
 {% block content %}
-    <h2>Upcoming Matches</h2>
-    <ul>
+    <h2 style="text-align: center; font-family: Arial, sans-serif;">Upcoming Matches</h2>
+    <ul style="list-style-type: none; padding: 0;">
         {% for match in matches %}
-        <li>
-            {{ match.team1 }} vs {{ match.team2 }} on {{ match.match_time|date:"D, d M Y H:i" }} at {{ match.venue }}, 
-            live on {{ match.watch }}
-            <a href="{% url 'edit_match' match.id %}">Edit</a>
-            <form action="{% url 'delete_match' match.id %}" method="POST" style="display:inline;">
+        <li style="margin-bottom: 15px; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            <strong>{{ match.team1 }} vs {{ match.team2 }}</strong>
+            <p style="margin: 5px 0;">{{ match.match_time|date:"D, d M Y H:i" }}</p>
+            <p style="margin: 5px 0;">Venue: {{ match.venue }}</p>
+            <p style="margin: 5px 0;">Watch: {{ match.watch }}</p>
+            <a href="{% url 'edit_match' match.id %}" style="color: #3498db; text-decoration: none;">Edit</a>
+            <form action="{% url 'delete_match' match.id %}" method="POST" style="display: inline;">
                 {% csrf_token %}
-                <button type="submit">Delete</button>
+                <button type="submit" style="background-color: #e74c3c; color: white; padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer;">Delete</button>
             </form>
         </li>
         {% empty %}
-        <p>No matches available.</p>
+        <p style="text-align: center; font-family: Arial, sans-serif;">No matches available.</p>
         {% endfor %}
     </ul>
-    <a href="{% url 'add_match' %}">Add New Match</a>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="{% url 'add_match' %}" style="background-color: #3498db; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none;">Add New Match</a>
+    </div>
 {% endblock %}
