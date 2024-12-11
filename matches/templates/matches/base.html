@@ -10,7 +10,7 @@
         <div>
             <h1 style="margin: 0;">Cricket Match Schedule</h1>
             {% if user.is_authenticated %}
-                <p>Welcome, {{ user.username }}! <a href="{% url 'logout' %}" style="color: #f39c12; text-decoration: none;">Logout</a></p>
+                <p>Welcome back, {{ user.username }}! <a href="{% url 'logout' %}" style="color: #f39c12; text-decoration: none;">Logout</a></p>
             {% else %}
                 <a href="{% url 'login' %}" style="color: #f39c12; text-decoration: none;">Login</a> | <a href="{% url 'sign_up' %}" style="color: #f39c12; text-decoration: none;">Sign Up</a>
             {% endif %}
